@@ -1,6 +1,6 @@
-import React, { useMemo, useState, useEffect } from 'react';
-import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { Stack, useLocalSearchParams } from 'expo-router';
+import React, { useEffect, useMemo, useState } from 'react';
+import { Image, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -44,9 +44,14 @@ export default function VehicleDetailsScreen() {
       <Stack.Screen options={{ title: `${vehicle.make} ${vehicle.model}` }} />
       <ScrollView contentContainerStyle={styles.content}>
         <ThemedView style={[styles.hero, { borderColor }]}>
-          <ThemedText type="defaultSemiBold">Image placeholder</ThemedText>
-          <ThemedText style={{ color: muted }}>Add a vehicle image here</ThemedText>
+          <Image
+            source={require('../../assets/images/car.avif')}
+            style={{ width: '100%', height: 200, borderRadius: 16 }}
+            resizeMode="cover"
+          />
         </ThemedView>
+
+
 
         <View style={styles.titleRow}>
           <View style={{ flex: 1 }}>

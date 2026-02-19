@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Image, Pressable, StyleSheet, View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { IconSymbol } from '@/components/ui/icon-symbol';
-import type { Vehicle } from '@/state/vehicles-context';
 import { useThemeColor } from '@/hooks/use-theme-color';
+import type { Vehicle } from '@/state/vehicles-context';
 import { formatTimeUntilAuction } from '@/utils/auction';
 
 export function VehicleCard({
@@ -29,10 +29,11 @@ export function VehicleCard({
     <ThemedView style={[styles.card, { borderColor }]}>
       <Pressable onPress={onPress} style={styles.row}>
         <ThemedView style={[styles.imagePlaceholder, { borderColor }]}>
-          <ThemedText type="defaultSemiBold" style={styles.imagePlaceholderText}>
-            Image
-          </ThemedText>
-          <ThemedText style={[styles.imagePlaceholderText, { color: textMuted }]}>placeholder</ThemedText>
+          <Image 
+            source={ require('../assets/images/car.avif') }
+            style={{ width: '100%', height: '100%', borderRadius: 12 }}
+            resizeMode="cover"
+          />
         </ThemedView>
 
         <View style={styles.content}>
